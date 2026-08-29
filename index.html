@@ -1,1 +1,561 @@
 <h1>Mr.Vinylis</h1>
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-CV8ZHGCPHG"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-CV8ZHGCPHG');
+</script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Mr.Vinylis Catalogue</title>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f7f4f0;
+            color: #333;
+        }
+
+        header {
+            text-align: center;
+            padding: 45px 20px 30px;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 34px;
+        }
+
+        header p {
+            color: #777;
+            font-size: 17px;
+        }
+
+        .catalogo {
+            max-width: 1200px;
+            margin: auto;
+            padding: 20px;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .prodotto {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            padding-bottom: 20px;
+        }
+
+        .foto-prodotto {
+            width: 100%;
+            height: 280px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .contenuto {
+            padding: 20px;
+        }
+
+        .prodotto h2 {
+            margin-top: 0;
+            font-size: 22px;
+        }
+
+        .descrizione {
+            color: #666;
+            line-height: 1.5;
+        }
+
+        .prezzo {
+            font-size: 21px;
+            font-weight: bold;
+            margin: 15px 0;
+        }
+
+        .timer {
+            margin: 20px 0;
+            padding: 14px;
+            text-align: center;
+            background: #f3eee8;
+            border-radius: 8px;
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        .timer.giorno-zero {
+            background: #fff3cd;
+            color: #856404;
+        }
+
+        .timer.scaduto {
+            background: #f2dede;
+            color: #a94442;
+        }
+
+        .non-disponibile {
+            background: #eeeeee;
+            color: #666;
+        }
+
+        .etsy {
+            display: block;
+            width: 100%;
+            padding: 14px;
+            border-radius: 7px;
+            background: #f1641e;
+            color: white;
+            text-decoration: none;
+            text-align: center;
+            font-weight: bold;
+            border: none;
+        }
+
+        .etsy:hover {
+            background: #d95312;
+        }
+
+        .etsy.disabilitato {
+            background: #999;
+            color: white;
+            cursor: not-allowed;
+            pointer-events: none;
+        }
+
+        .data {
+            font-size: 13px;
+            color: #888;
+            margin-top: 10px;
+        }
+
+        @media (max-width: 900px) {
+
+            .catalogo {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+        }
+
+        @media (max-width: 600px) {
+
+            .catalogo {
+                grid-template-columns: 1fr;
+                padding: 15px;
+            }
+
+            .foto-prodotto {
+                height: 300px;
+            }
+
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+
+<header>
+
+    <h1>MR.VINYLIS</h1>
+
+    <p>CATALOGUE</p>
+
+</header>
+
+
+<main class="catalogo">
+
+
+    <!-- ================================================= -->
+    <!-- OPERA 1                                           -->
+    <!-- ================================================= -->
+
+    <article
+        class="prodotto"
+        data-inizio="2026-08-22"
+    >
+
+        <img
+            class="foto-prodotto"
+            src="Foto-1.png"
+            alt="Opera 1"
+        >
+
+        <div class="contenuto">
+
+            <h2>Opera prova 1</h2>
+
+            <p class="descrizione">
+                Opera astratta Vacum. L'opera rimarrà in vendita solo per 30 giorni, allo scadere della data sarà bruciata e le sue ceneri saranno disperse.
+            </p>
+
+            <div class="prezzo">
+                € 50,00
+            </div>
+
+            <div class="data">
+                Disponibile dal 22/08/2026
+            </div>
+
+            <div class="timer">
+                Calcolo disponibilità...
+            </div>
+
+            <a
+                class="etsy"
+                href="https://www.etsy.com/it/shop/MrBurnStudio"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                ACQUISTA SU ETSY
+            </a>
+
+        </div>
+
+    </article>
+
+
+    <!-- ================================================= -->
+    <!-- OPERA 2                                           -->
+    <!-- ================================================= -->
+
+    <article
+        class="prodotto"
+        data-inizio="2026-09-10"
+    >
+
+        <img
+            class="foto-prodotto"
+            src="https://via.placeholder.com/600x600?text=Opera+2"
+            alt="Opera 2"
+        >
+
+        <div class="contenuto">
+
+            <h2>Opera 2</h2>
+
+            <p class="descrizione">
+                Inserisci qui la descrizione dell'opera.
+            </p>
+
+            <div class="prezzo">
+                € 00,00
+            </div>
+
+            <div class="data">
+                Disponibile dal 10/09/2026
+            </div>
+
+            <div class="timer">
+                Calcolo disponibilità...
+            </div>
+
+            <a
+                class="etsy"
+                href="https://www.etsy.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                ACQUISTA SU ETSY
+            </a>
+
+        </div>
+
+    </article>
+
+
+    <!-- ================================================= -->
+    <!-- OPERA 3                                           -->
+    <!-- ================================================= -->
+
+    <article
+        class="prodotto"
+        data-inizio="2026-09-20"
+    >
+
+        <img
+            class="foto-prodotto"
+            src="https://via.placeholder.com/600x600?text=Opera+3"
+            alt="Opera 3"
+        >
+
+        <div class="contenuto">
+
+            <h2>Opera 3</h2>
+
+            <p class="descrizione">
+                Inserisci qui la descrizione dell'opera.
+            </p>
+
+            <div class="prezzo">
+                € 00,00
+            </div>
+
+            <div class="data">
+                Disponibile dal 20/09/2026
+            </div>
+
+            <div class="timer">
+                Calcolo disponibilità...
+            </div>
+
+            <a
+                class="etsy"
+                href="https://www.etsy.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                ACQUISTA SU ETSY
+            </a>
+
+        </div>
+
+    </article>
+
+
+</main>
+
+
+<script>
+
+
+/*
+==========================================================
+ IMPOSTAZIONI
+==========================================================
+*/
+
+
+/*
+ * Durata della disponibilità:
+ *
+ * 30 giorni
+ */
+
+const DURATA_GIORNI = 30;
+
+
+/*
+==========================================================
+ FUNZIONE TIMER
+==========================================================
+*/
+function aggiornaCatalogo() {
+
+    const prodotti = document.querySelectorAll(".prodotto");
+    const adesso = new Date();
+
+    prodotti.forEach(function(prodotto) {
+
+        const dataInizioStringa = prodotto.dataset.inizio;
+
+        // La data di inizio è il GIORNO 30.
+        const dataInizio = new Date(
+            dataInizioStringa + "T00:00:00"
+        );
+
+        /*
+         * Giorno 0:
+         * è il 30° giorno dopo la data di inizio.
+         *
+         * Il giorno 0 resta attivo fino alle 23:59:59.
+         * Etsy viene disattivato alle 00:00 del giorno successivo.
+         */
+
+        const inizioGiornoZero = new Date(dataInizio);
+        inizioGiornoZero.setDate(
+            inizioGiornoZero.getDate() + 30
+        );
+
+        const fineGiornoZero = new Date(inizioGiornoZero);
+        fineGiornoZero.setDate(
+            fineGiornoZero.getDate() + 1
+        );
+
+        const timer = prodotto.querySelector(".timer");
+        const pulsante = prodotto.querySelector(".etsy");
+
+        /*
+         * PRIMA DELLA DATA DI INIZIO
+         */
+
+        if (adesso < dataInizio) {
+
+            const differenza =
+                dataInizio.getTime() - adesso.getTime();
+
+            const giorni = Math.ceil(
+                differenza / (1000 * 60 * 60 * 24)
+            );
+
+            timer.innerHTML =
+                "NON ANCORA DISPONIBILE<br>" +
+                "Disponibile tra " +
+                giorni +
+                " giorni";
+
+            timer.classList.add("non-disponibile");
+
+            pulsante.classList.add("disabilitato");
+
+            pulsante.removeAttribute("href");
+            pulsante.removeAttribute("target");
+
+            pulsante.innerHTML =
+                "NON ANCORA DISPONIBILE";
+
+            return;
+        }
+
+        /*
+         * DOPO LE 23:59:59 DEL GIORNO 0
+         */
+
+        if (adesso >= fineGiornoZero) {
+
+            timer.innerHTML =
+                "⛔ DISPONIBILITÀ TERMINATA";
+
+            timer.classList.remove("giorno-zero");
+            timer.classList.add("scaduto");
+
+            pulsante.classList.add("disabilitato");
+
+            pulsante.removeAttribute("href");
+            pulsante.removeAttribute("target");
+
+            pulsante.innerHTML =
+                "NON PIÙ DISPONIBILE";
+
+            return;
+        }
+
+        /*
+         * CALCOLO DEL GIORNO
+         */
+
+        const differenzaInizio =
+            adesso.getTime() - dataInizio.getTime();
+
+        let giorniTrascorsi = Math.floor(
+            differenzaInizio /
+            (1000 * 60 * 60 * 24)
+        );
+
+        /*
+         * Giorno visualizzato:
+         *
+         * giorno 30 = data di inizio
+         * giorno 29 = giorno successivo
+         * ...
+         * giorno 0 = 30 giorni dopo
+         */
+
+        let giorno = 30 - giorniTrascorsi;
+
+        if (giorno < 0) {
+            giorno = 0;
+        }
+
+        /*
+         * TEMPO RIMANENTE
+         */
+
+        const differenza =
+            fineGiornoZero.getTime() -
+            adesso.getTime();
+
+        const ore = Math.floor(
+            (differenza / (1000 * 60 * 60)) % 24
+        );
+
+        const minuti = Math.floor(
+            (differenza / (1000 * 60)) % 60
+        );
+
+        const secondi = Math.floor(
+            (differenza / 1000) % 60
+        );
+
+        /*
+         * GIORNO 0
+         */
+
+        if (giorno === 0) {
+
+            timer.classList.add("giorno-zero");
+
+            timer.innerHTML =
+                "⚠️ GIORNO 0<br>" +
+                ore + " ore " +
+                minuti + " minuti " +
+                secondi + " secondi";
+
+        } else {
+
+            timer.classList.remove("giorno-zero");
+
+            timer.innerHTML =
+                "GIORNO " +
+                giorno +
+                "<br>" +
+                ore +
+                " ore " +
+                minuti +
+                " minuti " +
+                secondi +
+                " secondi";
+        }
+
+        /*
+         * ETSY ATTIVO
+         */
+
+        pulsante.classList.remove("disabilitato");
+
+        pulsante.innerHTML =
+            "ACQUISTA SU ETSY";
+    });
+}
+/*
+==========================================================
+ AVVIO
+==========================================================
+*/
+
+
+aggiornaCatalogo();
+
+
+/*
+ * Aggiorna il timer ogni secondo.
+ */
+
+setInterval(
+    aggiornaCatalogo,
+    1000
+);
+
+
+</script>
+
+
+</body>
+</html>
