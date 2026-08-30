@@ -3,135 +3,652 @@
 
 <head>
 
-    <!-- Google tag (gtag.js) -->
+    <!-- ==========================================
+         GOOGLE ANALYTICS
+         ========================================== -->
+
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-CV8ZHGCPHG"></script>
+
     <script>
         window.dataLayer = window.dataLayer || [];
+
         function gtag() {
             dataLayer.push(arguments);
         }
+
         gtag('js', new Date());
+
         gtag('config', 'G-CV8ZHGCPHG');
     </script>
 
+
+    <!-- ==========================================
+         IMPOSTAZIONI PAGINA
+         ========================================== -->
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
     <title>Mr.Vinylis Catalogue</title>
 
+
+    <!-- ==========================================
+         STILE
+         ========================================== -->
+
     <style>
+
+        /* ==========================================
+           IMPOSTAZIONI GENERALI
+           ========================================== */
 
         * {
             box-sizing: border-box;
         }
 
+
         body {
+
             margin: 0;
-            font-family: Arial, sans-serif;
+
+            font-family:
+                Arial,
+                Helvetica,
+                sans-serif;
+
             background: #f7f4f0;
+
             color: #333;
         }
 
+
+        /* ==========================================
+           HEADER
+           ========================================== */
+
         header {
+
             text-align: center;
-            padding: 45px 20px 30px;
+
+            padding:
+                45px
+                20px
+                30px;
         }
+
 
         header h1 {
+
             margin: 0;
+
             font-size: 34px;
+
+            letter-spacing: 2px;
         }
+
 
         header p {
+
+            margin-top: 10px;
+
             color: #777;
+
             font-size: 17px;
+
+            letter-spacing: 3px;
         }
 
+
+        /* ==========================================
+           CATALOGO
+           ========================================== */
+
         .catalogo {
+
             max-width: 1200px;
+
             margin: auto;
+
             padding: 20px;
+
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
             gap: 25px;
         }
 
+
+        /* ==========================================
+           SCHEDA OPERA
+           ========================================== */
+
         .prodotto {
+
             background: white;
+
             border-radius: 12px;
+
             overflow: hidden;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+
+            box-shadow:
+                0 4px 15px
+                rgba(0, 0, 0, 0.08);
+
             padding-bottom: 20px;
         }
 
-        .foto-prodotto {
+
+        /* ==========================================
+           FOTO PRINCIPALE
+           ========================================== */
+
+        .foto-principale {
+
             width: 100%;
-            height: 280px;
+
+            height: 350px;
+
             object-fit: cover;
+
             display: block;
+
+            background: #eeeeee;
+
+            cursor: pointer;
+
+            transition:
+                opacity 0.2s;
         }
 
+
+        .foto-principale:active {
+
+            opacity: 0.8;
+        }
+
+
+        /* ==========================================
+           MINIATURE
+           ========================================== */
+
+        .miniature {
+
+            display: flex;
+
+            gap: 8px;
+
+            padding: 10px;
+
+            overflow-x: auto;
+
+            background: #fafafa;
+
+            scrollbar-width: thin;
+        }
+
+
+        .miniature img {
+
+            width: 65px;
+
+            height: 65px;
+
+            object-fit: cover;
+
+            border-radius: 6px;
+
+            cursor: pointer;
+
+            opacity: 0.55;
+
+            border:
+                2px solid
+                transparent;
+
+            flex-shrink: 0;
+
+            transition:
+                opacity 0.2s,
+                border 0.2s,
+                transform 0.2s;
+        }
+
+
+        .miniature img:hover {
+
+            opacity: 1;
+
+            transform:
+                scale(1.03);
+        }
+
+
+        .miniature img.attiva {
+
+            opacity: 1;
+
+            border-color: #333;
+        }
+
+
+        /* ==========================================
+           CONTENUTO
+           ========================================== */
+
         .contenuto {
+
             padding: 20px;
         }
 
+
         .prodotto h2 {
+
             margin-top: 0;
+
+            margin-bottom: 12px;
+
             font-size: 22px;
         }
 
+
         .descrizione {
+
             color: #666;
+
             line-height: 1.5;
+
+            font-size: 15px;
         }
 
+
+        /* ==========================================
+           PREZZO
+           ========================================== */
+
         .prezzo {
+
             font-size: 21px;
+
             font-weight: bold;
+
             margin: 15px 0;
         }
 
+
+        /* ==========================================
+           DATA
+           ========================================== */
+
         .data {
+
             font-size: 13px;
+
             color: #888;
+
             margin-top: 10px;
         }
 
+
+        /* ==========================================
+           PULSANTE ETSY
+           ========================================== */
+
         .etsy {
+
             display: block;
+
             width: 100%;
+
             padding: 14px;
+
             border-radius: 7px;
+
             background: #f1641e;
+
             color: white;
+
             text-decoration: none;
+
             text-align: center;
+
             font-weight: bold;
+
             border: none;
+
             margin-top: 18px;
+
+            transition:
+                background 0.2s,
+                transform 0.2s;
         }
 
+
         .etsy:hover {
+
             background: #d95312;
+
+            transform:
+                translateY(-1px);
         }
+
+
+        /* ==========================================
+           LIGHTBOX / FOTO A SCHERMO INTERO
+           ========================================== */
+
+        .lightbox {
+
+            display: none;
+
+            position: fixed;
+
+            z-index: 9999;
+
+            top: 0;
+
+            left: 0;
+
+            width: 100%;
+
+            height: 100%;
+
+            background:
+                rgba(0, 0, 0, 0.96);
+
+            align-items: center;
+
+            justify-content: center;
+
+            touch-action: pan-y;
+        }
+
+
+        .lightbox.aperto {
+
+            display: flex;
+        }
+
+
+        /* ==========================================
+           IMMAGINE LIGHTBOX
+           ========================================== */
+
+        .lightbox-img {
+
+            max-width: 92vw;
+
+            max-height: 85vh;
+
+            width: auto;
+
+            height: auto;
+
+            object-fit: contain;
+
+            user-select: none;
+
+            -webkit-user-select: none;
+
+            -webkit-user-drag: none;
+
+            border-radius: 4px;
+        }
+
+
+        /* ==========================================
+           PULSANTE CHIUDI
+           ========================================== */
+
+        .chiudi {
+
+            position: absolute;
+
+            top: 15px;
+
+            right: 20px;
+
+            width: 48px;
+
+            height: 48px;
+
+            border: none;
+
+            border-radius: 50%;
+
+            background:
+                rgba(255,255,255,0.15);
+
+            color: white;
+
+            font-size: 32px;
+
+            line-height: 48px;
+
+            text-align: center;
+
+            cursor: pointer;
+
+            z-index: 10001;
+        }
+
+
+        .chiudi:hover {
+
+            background:
+                rgba(255,255,255,0.25);
+        }
+
+
+        /* ==========================================
+           FRECCIA SINISTRA / DESTRA
+           ========================================== */
+
+        .freccia {
+
+            position: absolute;
+
+            top: 50%;
+
+            transform:
+                translateY(-50%);
+
+            width: 50px;
+
+            height: 70px;
+
+            border: none;
+
+            border-radius: 8px;
+
+            background:
+                rgba(255,255,255,0.12);
+
+            color: white;
+
+            font-size: 42px;
+
+            cursor: pointer;
+
+            z-index: 10001;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+        }
+
+
+        .freccia:hover {
+
+            background:
+                rgba(255,255,255,0.25);
+        }
+
+
+        .freccia-sinistra {
+
+            left: 20px;
+        }
+
+
+        .freccia-destra {
+
+            right: 20px;
+        }
+
+
+        /* ==========================================
+           CONTATORE FOTO
+           ========================================== */
+
+        .contatore {
+
+            position: absolute;
+
+            bottom: 25px;
+
+            left: 50%;
+
+            transform:
+                translateX(-50%);
+
+            color: white;
+
+            font-size: 15px;
+
+            background:
+                rgba(0,0,0,0.45);
+
+            padding:
+                7px
+                13px;
+
+            border-radius: 20px;
+
+            z-index: 10001;
+        }
+
+
+        /* ==========================================
+           TABLET
+           ========================================== */
 
         @media (max-width: 900px) {
 
             .catalogo {
-                grid-template-columns: repeat(2, 1fr);
+
+                grid-template-columns:
+                    repeat(2, 1fr);
             }
 
         }
 
+
+        /* ==========================================
+           SMARTPHONE
+           ========================================== */
+
         @media (max-width: 600px) {
 
-            .catalogo {
-                grid-template-columns: 1fr;
-                padding: 15px;
+            header {
+
+                padding:
+                    35px
+                    15px
+                    20px;
             }
 
-            .foto-prodotto {
-                height: 300px;
+
+            header h1 {
+
+                font-size: 30px;
+            }
+
+
+            header p {
+
+                font-size: 15px;
+            }
+
+
+            .catalogo {
+
+                grid-template-columns: 1fr;
+
+                padding: 12px;
+
+                gap: 20px;
+            }
+
+
+            .foto-principale {
+
+                height: 360px;
+            }
+
+
+            .contenuto {
+
+                padding: 18px;
+            }
+
+
+            .prodotto h2 {
+
+                font-size: 21px;
+            }
+
+
+            /* FOTO A SCHERMO INTERO SU TELEFONO */
+
+            .lightbox-img {
+
+                max-width: 96vw;
+
+                max-height: 82vh;
+            }
+
+
+            .freccia {
+
+                width: 42px;
+
+                height: 55px;
+
+                font-size: 32px;
+            }
+
+
+            .freccia-sinistra {
+
+                left: 8px;
+            }
+
+
+            .freccia-destra {
+
+                right: 8px;
+            }
+
+
+            .chiudi {
+
+                top: 10px;
+
+                right: 10px;
+
+                width: 44px;
+
+                height: 44px;
+
+                line-height: 44px;
             }
 
         }
@@ -144,145 +661,1031 @@
 <body>
 
 
-<header>
+    <!-- ==========================================
+         INTESTAZIONE
+         ========================================== -->
 
-    <h1>MR.VINYLIS</h1>
+    <header>
 
-    <p>CATALOGUE</p>
+        <h1>
+            MR.VINYLIS
+        </h1>
 
-</header>
+        <p>
+            CATALOGUE
+        </p>
+
+    </header>
 
 
-<main class="catalogo">
+
+    <!-- ==========================================
+         CATALOGO
+         ========================================== -->
+
+    <main class="catalogo">
 
 
-    <!-- ================================================= -->
-    <!-- OPERA 1                                           -->
-    <!-- ================================================= -->
 
-    <article class="prodotto">
+        <!-- ======================================
+             OPERA 1
+             ====================================== -->
 
-        <img
-            class="foto-prodotto"
-            src="Foto-1.png"
-            alt="Opera 1"
+        <article class="prodotto">
+
+
+            <!-- FOTO PRINCIPALE -->
+
+            <img
+                id="foto-opera-1"
+                class="foto-principale"
+                src="Foto-1.png"
+                alt="Opera 1"
+                onclick="
+                    apriGalleria(
+                        'opera-1',
+                        0
+                    )
+                "
+            >
+
+
+            <!-- MINIATURE -->
+
+            <div
+                class="miniature"
+                id="miniature-opera-1"
+            >
+
+                <img
+                    src="Foto-1.png"
+                    alt="Opera 1 - foto 1"
+                    class="attiva"
+                    onclick="
+                        cambiaFoto(
+                            'foto-opera-1',
+                            this
+                        )
+                    "
+                >
+
+
+                <img
+                    src="Foto-1-2.png"
+                    alt="Opera 1 - foto 2"
+                    onclick="
+                        cambiaFoto(
+                            'foto-opera-1',
+                            this
+                        )
+                    "
+                >
+
+
+                <img
+                    src="Foto-1-3.png"
+                    alt="Opera 1 - foto 3"
+                    onclick="
+                        cambiaFoto(
+                            'foto-opera-1',
+                            this
+                        )
+                    "
+                >
+
+
+                <img
+                    src="Foto-1-4.png"
+                    alt="Opera 1 - foto 4"
+                    onclick="
+                        cambiaFoto(
+                            'foto-opera-1',
+                            this
+                        )
+                    "
+                >
+
+            </div>
+
+
+            <!-- INFORMAZIONI -->
+
+            <div class="contenuto">
+
+                <h2>
+                    Opera prova 1
+                </h2>
+
+
+                <p class="descrizione">
+
+                    Opera astratta Vacum.
+                    L'opera rimarrà in vendita
+                    solo per 30 giorni, allo scadere
+                    della data sarà bruciata e le sue
+                    ceneri saranno disperse.
+
+                </p>
+
+
+                <div class="prezzo">
+
+                    € 50,00
+
+                </div>
+
+
+                <div class="data">
+
+                    Disponibile dal 22/08/2026
+
+                </div>
+
+
+                <a
+                    class="etsy"
+                    href="https://www.etsy.com/it/shop/MrBurnStudio"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+
+                    ACQUISTA SU ETSY
+
+                </a>
+
+            </div>
+
+        </article>
+
+
+
+        <!-- ======================================
+             OPERA 2
+             ====================================== -->
+
+        <article class="prodotto">
+
+
+            <img
+                id="foto-opera-2"
+                class="foto-principale"
+                src="Foto-2.png"
+                alt="Opera 2"
+                onclick="
+                    apriGalleria(
+                        'opera-2',
+                        0
+                    )
+                "
+            >
+
+
+            <div
+                class="miniature"
+                id="miniature-opera-2"
+            >
+
+                <img
+                    src="Foto-2.png"
+                    alt="Opera 2 - foto 1"
+                    class="attiva"
+                    onclick="
+                        cambiaFoto(
+                            'foto-opera-2',
+                            this
+                        )
+                    "
+                >
+
+
+                <img
+                    src="Foto-2-2.png"
+                    alt="Opera 2 - foto 2"
+                    onclick="
+                        cambiaFoto(
+                            'foto-opera-2',
+                            this
+                        )
+                    "
+                >
+
+
+                <img
+                    src="Foto-2-3.png"
+                    alt="Opera 2 - foto 3"
+                    onclick="
+                        cambiaFoto(
+                            'foto-opera-2',
+                            this
+                        )
+                    "
+                >
+
+
+                <img
+                    src="Foto-2-4.png"
+                    alt="Opera 2 - foto 4"
+                    onclick="
+                        cambiaFoto(
+                            'foto-opera-2',
+                            this
+                        )
+                    "
+                >
+
+            </div>
+
+
+            <div class="contenuto">
+
+                <h2>
+                    Opera 2
+                </h2>
+
+
+                <p class="descrizione">
+
+                    Inserisci qui la
+                    descrizione dell'opera.
+
+                </p>
+
+
+                <div class="prezzo">
+
+                    € 00,00
+
+                </div>
+
+
+                <div class="data">
+
+                    Disponibile dal 10/09/2026
+
+                </div>
+
+
+                <a
+                    class="etsy"
+                    href="https://www.etsy.com/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+
+                    ACQUISTA SU ETSY
+
+                </a>
+
+            </div>
+
+        </article>
+
+
+
+        <!-- ======================================
+             OPERA 3
+             ====================================== -->
+
+        <article class="prodotto">
+
+
+            <img
+                id="foto-opera-3"
+                class="foto-principale"
+                src="Foto-3.png"
+                alt="Opera 3"
+                onclick="
+                    apriGalleria(
+                        'opera-3',
+                        0
+                    )
+                "
+            >
+
+
+            <div
+                class="miniature"
+                id="miniature-opera-3"
+            >
+
+                <img
+                    src="Foto-3.png"
+                    alt="Opera 3 - foto 1"
+                    class="attiva"
+                    onclick="
+                        cambiaFoto(
+                            'foto-opera-3',
+                            this
+                        )
+                    "
+                >
+
+
+                <img
+                    src="Foto-3-2.png"
+                    alt="Opera 3 - foto 2"
+                    onclick="
+                        cambiaFoto(
+                            'foto-opera-3',
+                            this
+                        )
+                    "
+                >
+
+
+                <img
+                    src="Foto-3-3.png"
+                    alt="Opera 3 - foto 3"
+                    onclick="
+                        cambiaFoto(
+                            'foto-opera-3',
+                            this
+                        )
+                    "
+                >
+
+
+                <img
+                    src="Foto-3-4.png"
+                    alt="Opera 3 - foto 4"
+                    onclick="
+                        cambiaFoto(
+                            'foto-opera-3',
+                            this
+                        )
+                    "
+                >
+
+            </div>
+
+
+            <div class="contenuto">
+
+                <h2>
+                    Opera 3
+                </h2>
+
+
+                <p class="descrizione">
+
+                    Inserisci qui la
+                    descrizione dell'opera.
+
+                </p>
+
+
+                <div class="prezzo">
+
+                    € 00,00
+
+                </div>
+
+
+                <div class="data">
+
+                    Disponibile dal 20/09/2026
+
+                </div>
+
+
+                <a
+                    class="etsy"
+                    href="https://www.etsy.com/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+
+                    ACQUISTA SU ETSY
+
+                </a>
+
+            </div>
+
+        </article>
+
+
+    </main>
+
+
+
+    <!-- ==========================================
+         LIGHTBOX
+         FOTO A SCHERMO INTERO
+         ========================================== -->
+
+    <div
+        class="lightbox"
+        id="lightbox"
+        onclick="clicLightbox(event)"
+    >
+
+
+        <!-- CHIUDI -->
+
+        <button
+            class="chiudi"
+            onclick="chiudiGalleria()"
+            aria-label="Chiudi"
         >
 
-        <div class="contenuto">
+            ×
 
-            <h2>Opera prova 1</h2>
+        </button>
 
-            <p class="descrizione">
-                Opera astratta Vacum. L'opera rimarrà in vendita solo per 30 giorni, allo scadere della data sarà bruciata e le sue ceneri saranno disperse.
-            </p>
 
-            <div class="prezzo">
-                € 50,00
-            </div>
+        <!-- FRECCIA SINISTRA -->
 
-            <div class="data">
-                Disponibile dal 22/08/2026
-            </div>
+        <button
+            class="freccia freccia-sinistra"
+            onclick="
+                eventoFreccia(event);
+                fotoPrecedente();
+            "
+            aria-label="Foto precedente"
+        >
 
-            <a
-                class="etsy"
-                href="https://www.etsy.com/it/shop/MrBurnStudio"
-                target="_blank"
-                rel="noopener noreferrer"
-            >
-                ACQUISTA SU ETSY
-            </a>
+            ‹
+
+        </button>
+
+
+        <!-- FOTO -->
+
+        <img
+            id="lightbox-img"
+            class="lightbox-img"
+            src=""
+            alt="Foto opera"
+        >
+
+
+        <!-- FRECCIA DESTRA -->
+
+        <button
+            class="freccia freccia-destra"
+            onclick="
+                eventoFreccia(event);
+                fotoSuccessiva();
+            "
+            aria-label="Foto successiva"
+        >
+
+            ›
+
+        </button>
+
+
+        <!-- CONTATORE -->
+
+        <div
+            class="contatore"
+            id="contatore"
+        >
+
+            1 / 1
 
         </div>
 
-    </article>
+
+    </div>
 
 
-    <!-- ================================================= -->
-    <!-- OPERA 2                                           -->
-    <!-- ================================================= -->
 
-    <article class="prodotto">
+    <!-- ==========================================
+         JAVASCRIPT
+         ========================================== -->
 
-        <img
-            class="foto-prodotto"
-            src="https://via.placeholder.com/600x600?text=Opera+2"
-            alt="Opera 2"
-        >
-
-        <div class="contenuto">
-
-            <h2>Opera 2</h2>
-
-            <p class="descrizione">
-                Inserisci qui la descrizione dell'opera.
-            </p>
-
-            <div class="prezzo">
-                € 00,00
-            </div>
-
-            <div class="data">
-                Disponibile dal 10/09/2026
-            </div>
-
-            <a
-                class="etsy"
-                href="https://www.etsy.com/"
-                target="_blank"
-                rel="noopener noreferrer"
-            >
-                ACQUISTA SU ETSY
-            </a>
-
-        </div>
-
-    </article>
+    <script>
 
 
-    <!-- ================================================= -->
-    <!-- OPERA 3                                           -->
-    <!-- ================================================= -->
+        /* ==========================================
+           CAMBIO FOTO PRINCIPALE
+           ========================================== */
 
-    <article class="prodotto">
-
-        <img
-            class="foto-prodotto"
-            src="https://via.placeholder.com/600x600?text=Opera+3"
-            alt="Opera 3"
-        >
-
-        <div class="contenuto">
-
-            <h2>Opera 3</h2>
-
-            <p class="descrizione">
-                Inserisci qui la descrizione dell'opera.
-            </p>
-
-            <div class="prezzo">
-                € 00,00
-            </div>
-
-            <div class="data">
-                Disponibile dal 20/09/2026
-            </div>
-
-            <a
-                class="etsy"
-                href="https://www.etsy.com/"
-                target="_blank"
-                rel="noopener noreferrer"
-            >
-                ACQUISTA SU ETSY
-            </a>
-
-        </div>
-
-    </article>
+        function cambiaFoto(
+            idFoto,
+            miniatura
+        ) {
 
 
-</main>
+            /*
+             * Evita che il click sulla miniatura
+             * apra anche la foto a schermo intero.
+             */
+
+            event.stopPropagation();
+
+
+            const fotoPrincipale =
+                document.getElementById(idFoto);
+
+
+            /*
+             * Cambia la foto principale.
+             */
+
+            fotoPrincipale.src =
+                miniatura.src;
+
+
+            /*
+             * Trova tutte le miniature.
+             */
+
+            const galleria =
+                miniatura.parentElement;
+
+
+            const miniature =
+                galleria.querySelectorAll("img");
+
+
+            /*
+             * Rimuove lo stato attivo.
+             */
+
+            miniature.forEach(
+                function(img) {
+
+                    img.classList.remove(
+                        "attiva"
+                    );
+
+                }
+            );
+
+
+            /*
+             * Evidenzia la miniatura
+             * selezionata.
+             */
+
+            miniatura.classList.add(
+                "attiva"
+            );
+
+        }
+
+
+
+        /* ==========================================
+           DATI DELLE GALLERIE
+           ========================================== */
+
+        const gallerie = {
+
+            "opera-1": [
+                "Foto-1.png",
+                "Foto-1-2.png",
+                "Foto-1-3.png",
+                "Foto-1-4.png"
+            ],
+
+            "opera-2": [
+                "Foto-2.png",
+                "Foto-2-2.png",
+                "Foto-2-3.png",
+                "Foto-2-4.png"
+            ],
+
+            "opera-3": [
+                "Foto-3.png",
+                "Foto-3-2.png",
+                "Foto-3-3.png",
+                "Foto-3-4.png"
+            ]
+
+        };
+
+
+
+        /* ==========================================
+           VARIABILI LIGHTBOX
+           ========================================== */
+
+        let galleriaAttuale = [];
+
+        let indiceFoto = 0;
+
+
+
+        /* ==========================================
+           APRI GALLERIA
+           ========================================== */
+
+        function apriGalleria(
+            nomeOpera,
+            indice
+        ) {
+
+
+            /*
+             * Recupera le immagini
+             * dell'opera.
+             */
+
+            galleriaAttuale =
+                gallerie[nomeOpera];
+
+
+            indiceFoto =
+                indice;
+
+
+            /*
+             * Mostra la lightbox.
+             */
+
+            const lightbox =
+                document.getElementById(
+                    "lightbox"
+                );
+
+
+            lightbox.classList.add(
+                "aperto"
+            );
+
+
+            /*
+             * Blocca lo scroll
+             * della pagina.
+             */
+
+            document.body.style.overflow =
+                "hidden";
+
+
+            /*
+             * Mostra la foto.
+             */
+
+            mostraFotoLightbox();
+
+        }
+
+
+
+        /* ==========================================
+           MOSTRA FOTO LIGHTBOX
+           ========================================== */
+
+        function mostraFotoLightbox() {
+
+
+            const immagine =
+                document.getElementById(
+                    "lightbox-img"
+                );
+
+
+            const contatore =
+                document.getElementById(
+                    "contatore"
+                );
+
+
+            /*
+             * Cambia immagine.
+             */
+
+            immagine.src =
+                galleriaAttuale[indiceFoto];
+
+
+            /*
+             * Aggiorna contatore.
+             */
+
+            contatore.textContent =
+                (indiceFoto + 1)
+                +
+                " / "
+                +
+                galleriaAttuale.length;
+
+        }
+
+
+
+        /* ==========================================
+           FOTO SUCCESSIVA
+           ========================================== */
+
+        function fotoSuccessiva() {
+
+
+            if (
+                galleriaAttuale.length === 0
+            ) {
+                return;
+            }
+
+
+            indiceFoto++;
+
+
+            /*
+             * Se arriviamo all'ultima,
+             * torniamo alla prima.
+             */
+
+            if (
+                indiceFoto >=
+                galleriaAttuale.length
+            ) {
+
+                indiceFoto = 0;
+
+            }
+
+
+            mostraFotoLightbox();
+
+        }
+
+
+
+        /* ==========================================
+           FOTO PRECEDENTE
+           ========================================== */
+
+        function fotoPrecedente() {
+
+
+            if (
+                galleriaAttuale.length === 0
+            ) {
+                return;
+            }
+
+
+            indiceFoto--;
+
+
+            /*
+             * Se siamo sulla prima,
+             * andiamo all'ultima.
+             */
+
+            if (indiceFoto < 0) {
+
+                indiceFoto =
+                    galleriaAttuale.length - 1;
+
+            }
+
+
+            mostraFotoLightbox();
+
+        }
+
+
+
+        /* ==========================================
+           CHIUDI GALLERIA
+           ========================================== */
+
+        function chiudiGalleria() {
+
+
+            const lightbox =
+                document.getElementById(
+                    "lightbox"
+                );
+
+
+            lightbox.classList.remove(
+                "aperto"
+            );
+
+
+            /*
+             * Riabilita lo scroll
+             * della pagina.
+             */
+
+            document.body.style.overflow =
+                "";
+
+        }
+
+
+
+        /* ==========================================
+           CLICK SULLO SFONDO
+           ========================================== */
+
+        function clicLightbox(evento) {
+
+
+            /*
+             * Se l'utente tocca lo sfondo nero,
+             * chiude la galleria.
+             */
+
+            if (
+                evento.target.id ===
+                "lightbox"
+            ) {
+
+                chiudiGalleria();
+
+            }
+
+        }
+
+
+
+        /* ==========================================
+           BLOCCA PROPAGAZIONE FRECCE
+           ========================================== */
+
+        function eventoFreccia(evento) {
+
+            evento.stopPropagation();
+
+        }
+
+
+
+        /* ==========================================
+           TASTIERA COMPUTER
+           ========================================== */
+
+        document.addEventListener(
+            "keydown",
+            function(evento) {
+
+
+                const lightbox =
+                    document.getElementById(
+                        "lightbox"
+                    );
+
+
+                /*
+                 * Se la galleria non è aperta,
+                 * non fare nulla.
+                 */
+
+                if (
+                    !lightbox.classList.contains(
+                        "aperto"
+                    )
+                ) {
+
+                    return;
+
+                }
+
+
+                /*
+                 * Freccia destra.
+                 */
+
+                if (
+                    evento.key ===
+                    "ArrowRight"
+                ) {
+
+                    fotoSuccessiva();
+
+                }
+
+
+                /*
+                 * Freccia sinistra.
+                 */
+
+                if (
+                    evento.key ===
+                    "ArrowLeft"
+                ) {
+
+                    fotoPrecedente();
+
+                }
+
+
+                /*
+                 * ESC per chiudere.
+                 */
+
+                if (
+                    evento.key ===
+                    "Escape"
+                ) {
+
+                    chiudiGalleria();
+
+                }
+
+            }
+        );
+
+
+
+        /* ==========================================
+           SWIPE CON IL DITO
+           ========================================== */
+
+        let toccoInizioX = 0;
+
+        let toccoFineX = 0;
+
+
+        const lightbox =
+            document.getElementById(
+                "lightbox"
+            );
+
+
+        lightbox.addEventListener(
+            "touchstart",
+            function(evento) {
+
+
+                toccoInizioX =
+                    evento.changedTouches[0].screenX;
+
+            },
+            {
+                passive: true
+            }
+        );
+
+
+        lightbox.addEventListener(
+            "touchend",
+            function(evento) {
+
+
+                toccoFineX =
+                    evento.changedTouches[0].screenX;
+
+
+                gestisciSwipe();
+
+            },
+            {
+                passive: true
+            }
+        );
+
+
+
+        /* ==========================================
+           GESTIONE SWIPE
+           ========================================== */
+
+        function gestisciSwipe() {
+
+
+            const distanza =
+                toccoFineX -
+                toccoInizioX;
+
+
+            /*
+             * Movimento minimo necessario
+             * per riconoscere lo swipe.
+             */
+
+            const soglia = 50;
+
+
+            /*
+             * Swipe verso sinistra:
+             * foto successiva.
+             */
+
+            if (
+                distanza < -soglia
+            ) {
+
+                fotoSuccessiva();
+
+            }
+
+
+            /*
+             * Swipe verso destra:
+             * foto precedente.
+             */
+
+            if (
+                distanza > soglia
+            ) {
+
+                fotoPrecedente();
+
+            }
+
+        }
+
+
+    </script>
 
 
 </body>
